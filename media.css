@@ -1,0 +1,115 @@
+/* Hamburger hidden on larger screens (shown at 768px and below) */
+.menu-btn{display:none}
+
+/* ---------- 1450px ---------- */
+@media (max-width:1450px){
+  .section{padding:4.5rem 1.5rem}
+  .hero{padding:4.5rem 1.5rem 3.5rem}
+  .hero-video{max-width:280px}
+}
+
+/* ---------- 1200px ---------- */
+@media (max-width:1200px){
+  .hero{gap:2rem}
+  .story-grid,.contact{gap:2rem}
+  h2{font-size:2.2rem}
+  .trio{gap:1.2rem}
+  .gallery{gap:1.2rem}
+}
+
+/* ---------- 992px: sections stack and center ---------- */
+@media (max-width:992px){
+  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2.5rem;padding-top:3rem}
+  .hero-text{display:flex;flex-direction:column;align-items:center}
+  .lede{margin-left:auto;margin-right:auto}
+  .cta-row{justify-content:center}
+  .hero-video{max-width:260px}
+
+  .story-grid,.contact{display:flex;flex-direction:column;gap:2rem}
+  .big{text-align:center}
+  .form{width:100%}
+  .section{padding:4rem 1.25rem}
+}
+
+/* ---------- 768px: hamburger menu ---------- */
+@media (max-width:768px){
+  html{scroll-padding-top:70px}
+
+  .nav{position:relative;gap:.6rem}
+  .menu-btn{
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:44px;height:44px;background:none;border:2px solid var(--ink);border-radius:50%;cursor:pointer;
+  }
+  .menu-btn span{display:block;width:20px;height:2.5px;background:var(--ink);border-radius:3px;transition:transform .25s,opacity .2s}
+  .menu-btn.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .menu-btn.open span:nth-child(2){opacity:0}
+  .menu-btn.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+  .jumps{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:.2rem;
+    background:var(--paper);padding:.8rem 1.25rem 1.2rem;
+    border-bottom:2px dashed var(--blush);box-shadow:0 8px 14px rgba(58,46,43,.08);
+  }
+  .jumps.open{display:flex;animation:menuIn .25s ease}
+  .jumps li{display:flex;flex-direction:column}
+  .jumps a{padding:.6rem 1rem;text-align:center;font-size:1.3rem}
+  @keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+  .trio{display:flex;flex-direction:column;gap:1.2rem}
+  .card{width:100%}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:1rem}
+
+  .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:1.2rem}
+  .footer-nav{display:flex;flex-direction:column;align-items:center}
+  .footer-nav ul{justify-content:center}
+  .footer-brand{text-align:center}
+}
+
+/* ---------- 576px ---------- */
+@media (max-width:576px){
+  body{font-size:1.1rem}
+  h2{font-size:2rem;text-align:center}
+  .sub{text-align:center}
+  .section{padding:3.2rem 1rem}
+  .hero{padding:2.5rem 1rem 3rem}
+  .hero-video{max-width:230px}
+  .lede{font-size:1.3rem}
+
+  .cta-row{flex-direction:column;align-items:stretch;width:100%;max-width:320px}
+  .cta-row .btn{text-align:center}
+
+  .big{font-size:1.4rem}
+  .timeline{padding-left:1.6rem}
+  .signature{text-align:center}
+  .signature.small{text-align:center}
+
+  .contact-copy{text-align:center}
+  .form{padding:1.2rem}
+  .print .btn{width:100%;text-align:center}
+
+  .legal{display:block;margin:.2rem 0}
+}
+
+/* ---------- 375px ---------- */
+@media (max-width:375px){
+  .demo-bar{font-size:.85rem}
+  .brand{font-size:1.1rem}
+  .cart-btn{padding:.05rem .6rem;font-size:1rem}
+  .hero h1{font-size:2.4rem}
+  .hero-video{max-width:200px}
+  .gallery{display:flex;flex-direction:column;gap:1.2rem}
+  .g{transform:none}
+  .g:nth-child(odd),.g:nth-child(even){transform:none}
+  .form{padding:1rem}
+  .toast{width:calc(100% - 2rem);text-align:center;border-radius:18px}
+}
+
+/* ---------- accessibility + print ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .scribble path{stroke-dashoffset:0}
+  .timeline{--grow:1}
+}
+@media print{.nav-wrap,.demo-bar,.form,.toast{display:none}}
